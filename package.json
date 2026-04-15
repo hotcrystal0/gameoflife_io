@@ -1,0 +1,6 @@
+{
+  "name": "dark-forest",
+  "version": "9.2.0",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "ws": "^8.16.0" }
+}
