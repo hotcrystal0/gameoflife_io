@@ -1,6 +1,5 @@
 aivo -
 
-<details>
 ```
 Todo list as promised:
 
@@ -29,4 +28,3 @@ Optimisation - if anyone is a programmer please let me know as this is the big o
 Set up GitHub/GitLab repo [DONE]
 Persistence confirmed working (Railway volume at /data)
 ```
-</details>
