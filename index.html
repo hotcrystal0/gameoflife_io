@@ -97,7 +97,7 @@ document.getElementById('ni').onkeydown=e=>{if(e.key==='Enter')document.getEleme
 
 // ═══ PATTERNS ═══
 let savedPats=JSON.parse(localStorage.getItem('df_patterns')||'{}');
-const BUILTIN={Glider:[[0,0],[1,0],[2,0],[2,-1],[1,-2]],Block:[[0,0],[1,0],[0,1],[1,1]],Blinker:[[0,0],[1,0],[2,0]],LWSS:[[0,0],[1,0],[2,0],[3,0],[4,1],[4,3],[0,1],[0,3],[1,3]],RPentomino:[[1,0],[2,0],[0,1],[1,1],[1,2]]};
+const BUILTIN={Glider:[[0,0],[1,0],[2,0],[2,-1],[1,-2]],Block:[[0,0],[1,0],[0,1],[1,1]],Blinker:[[0,0],[1,0],[2,0]],LWSS:[[0,0],[1,0],[2,0],[3,0],[4,1],[4,3],[0,1],[0,2],[1,3]],RPentomino:[[1,0],[2,0],[0,1],[1,1],[1,2]]};
 function renderPats(){const el=document.getElementById('patList');el.innerHTML='';for(const n in BUILTIN){const b=document.createElement('button');b.className='pat-item';b.textContent=n;b.onclick=()=>loadPat(BUILTIN[n]);el.appendChild(b);}for(const n in savedPats){const b=document.createElement('button');b.className='pat-item';b.textContent='★'+n;b.onclick=()=>loadPat(savedPats[n]);el.appendChild(b);}}
 function loadPat(pat){pending.length=0;for(const[dx,dy]of pat)pending.push({x:mbx+Math.floor(mySz/2)+dx,y:mby+Math.floor(mySz/2)+dy});updatePending();}
 document.getElementById('patSave').onclick=()=>{if(!pending.length)return;const n=prompt('Name:');if(!n)return;const mx=Math.min(...pending.map(p=>p.x)),my=Math.min(...pending.map(p=>p.y));savedPats[n]=pending.map(p=>[p.x-mx,p.y-my]);localStorage.setItem('df_patterns',JSON.stringify(savedPats));renderPats();};
